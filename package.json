@@ -1,0 +1,35 @@
+{
+  "name": "instrumented-hapi-with-errors",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Hapi server that only returns errors auto-instrumentation with OpenTelemetry",
+  "main": "index.js",
+  "scripts": {
+    "zipkin:server": "cross-env EXPORTER=zipkin node ./server.js",
+    "jaeger:server": "cross-env EXPORTER=jaeger node ./server.js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:CptSchnitz/instrumented-hapi-with-errors.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5",
+    "@opentelemetry/api": "^1.0.1",
+    "@opentelemetry/exporter-jaeger": "^0.23.0",
+    "@opentelemetry/exporter-zipkin": "^0.23.0",
+    "@opentelemetry/instrumentation": "^0.23.0",
+    "@opentelemetry/instrumentation-hapi": "^0.23.0",
+    "@opentelemetry/instrumentation-http": "^0.23.0",
+    "@opentelemetry/node": "^0.23.0",
+    "@opentelemetry/tracing": "^0.23.0"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.0"
+  }
+}
